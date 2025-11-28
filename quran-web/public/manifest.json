@@ -1,0 +1,62 @@
+{
+  "name": "QuranApp - Baca Al-Quran Digital",
+  "short_name": "QuranApp",
+  "description": "Aplikasi Al-Quran digital yang dapat diakses offline. Baca Quran kapan saja, dimana saja dengan teknologi PWA.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2D5016",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%232D5016' width='192' height='192'/><text x='50%' y='50%' font-size='100' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial'>📖</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%232D5016' width='512' height='512'/><text x='50%' y='50%' font-size='300' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial'>📖</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["education", "religion"],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%232D5016' width='540' height='720'/><text x='50%' y='50%' font-size='100' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial'>📖 QuranApp</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Baca Quran",
+      "short_name": "Quran",
+      "description": "Mulai membaca Al-Quran",
+      "url": "/quran",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%232D5016' width='96' height='96'/><text x='50%' y='50%' font-size='50' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial'>📖</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Profil",
+      "short_name": "Profil",
+      "description": "Lihat profil dan bookmark",
+      "url": "/profil",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%236BAA3D' width='96' height='96'/><text x='50%' y='50%' font-size='50' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial'>👤</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}
