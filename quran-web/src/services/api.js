@@ -29,6 +29,17 @@ export const quranAPI = {
       throw error;
     }
   },
+
+  // ✅ GET AYAT BY JUZ
+  getJuzById: async (id) => {
+    try {
+      const response = await apiClient.get(`/juz/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching juz:', error);
+      throw error;
+    }
+  },
 };
 
 export default apiClient;

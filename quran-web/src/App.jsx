@@ -11,95 +11,118 @@ import { ProfilPage } from './pages/ProfilPage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { AboutPage } from './pages/AboutPage';
+import { JuzPage } from './pages/JuzPage';
+import { JuzDetailPage } from './pages/JuzDetailPage';   // ✅ IMPORT DETAIL JUZ
+
 import './App.css';
 
 // Helper untuk sembunyikan BottomNavbar di halaman tertentu
 function Layout({ children }) {
-  const location = useLocation();
-  const hideNavbar = ['/login', '/register'].includes(location.pathname);
+    const location = useLocation();
+    const hideNavbar = ['/login', '/register'].includes(location.pathname);
 
-  return (
-      <div className="flex flex-col min-h-screen pb-20">
-        <main className="flex-grow">{children}</main>
-        {!hideNavbar && <BottomNavbar />}
-      </div>
-  );
+    return (
+        <div className="flex flex-col min-h-screen pb-20">
+            <main className="flex-grow">{children}</main>
+            {!hideNavbar && <BottomNavbar />}
+        </div>
+    );
 }
 
 function App() {
-  return (
-      <AuthProvider>
-        <Router>
-          <Layout>
-            <Routes>
+    return (
+        <AuthProvider>
+            <Router>
+                <Layout>
+                    <Routes>
 
-              {/* HALAMAN PUBLIK */}
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
+                        {/* HALAMAN PUBLIK */}
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/register" element={<RegisterPage />} />
 
-              {/* HALAMAN TERKUNCI */}
-              <Route
-                  path="/"
-                  element={
-                    <ProtectedRoute>
-                      <HomePage />
-                    </ProtectedRoute>
-                  }
-              />
+                        {/* HALAMAN TERKUNCI */}
+                        <Route
+                            path="/"
+                            element={
+                                <ProtectedRoute>
+                                    <HomePage />
+                                </ProtectedRoute>
+                            }
+                        />
 
-              <Route
-                  path="/quran"
-                  element={
-                    <ProtectedRoute>
-                      <QuranPage />
-                    </ProtectedRoute>
-                  }
-              />
+                        <Route
+                            path="/quran"
+                            element={
+                                <ProtectedRoute>
+                                    <QuranPage />
+                                </ProtectedRoute>
+                            }
+                        />
 
-              <Route
-                  path="/quran/:id"
-                  element={
-                    <ProtectedRoute>
-                      <QuranDetailPage />
-                    </ProtectedRoute>
-                  }
-              />
+                        <Route
+                            path="/quran/:id"
+                            element={
+                                <ProtectedRoute>
+                                    <QuranDetailPage />
+                                </ProtectedRoute>
+                            }
+                        />
 
-              <Route
-                  path="/sejarah"
-                  element={
-                    <ProtectedRoute>
-                      <SejarahPage />
-                    </ProtectedRoute>
-                  }
-              />
+                        {/* ✅ ROUTE JUZ (LIST) */}
+                        <Route
+                            path="/juz"
+                            element={
+                                <ProtectedRoute>
+                                    <JuzPage />
+                                </ProtectedRoute>
+                            }
+                        />
 
-              <Route
-                  path="/profil"
-                  element={
-                    <ProtectedRoute>
-                      <ProfilPage />
-                    </ProtectedRoute>
-                  }
-              />
+                        {/* ✅ ROUTE DETAIL JUZ */}
+                        <Route
+                            path="/juz/:id"
+                            element={
+                                <ProtectedRoute>
+                                    <JuzDetailPage />
+                                </ProtectedRoute>
+                            }
+                        />
 
-              <Route
-                  path="/about"
-                  element={
-                    <ProtectedRoute>
-                      <AboutPage />
-                    </ProtectedRoute>
-                  }
-              />
+                        <Route
+                            path="/sejarah"
+                            element={
+                                <ProtectedRoute>
+                                    <SejarahPage />
+                                </ProtectedRoute>
+                            }
+                        />
 
-              {/* SEMUA URL LAIN → LOGIN */}
-              <Route path="*" element={<Navigate to="/login" replace />} />
+                        <Route
+                            path="/profil"
+                            element={
+                                <ProtectedRoute>
+                                    <ProfilPage />
+                                </ProtectedRoute>
+                            }
+                        />
 
-            </Routes>
-          </Layout>
-        </Router>
-      </AuthProvider>
-  );
+                        <Route
+                            path="/about"
+                            element={
+                                <ProtectedRoute>
+                                    <AboutPage />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        {/* SEMUA URL LAIN → LOGIN */}
+                        <Route path="*" element={<Navigate to="/login" replace />} />
+
+                    </Routes>
+                </Layout>
+            </Router>
+        </AuthProvider>
+    );
 }
 
 export default App;
